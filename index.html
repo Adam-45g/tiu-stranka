@@ -7,20 +7,20 @@
     body {
       background-color: white;
       font-family: Arial, sans-serif;
-      font-size: 18px;
-    }
-    h1 { color: blue; }
+      font-size: 18px;}
+    h1 {color: blue;}
     .karta {
       border: 2px solid black;
       padding: 12px;
       margin: 20px;
       text-align: center;
-      width: 250px;
-    }
+      width: 250px;}
     .zoznam {
       width: 330px;
-      text-align: left;
-    }
+      text-align: left;}
+    .tmava {
+      background-color: black;
+      color: white;}
   </style>
 </head>
 <center><body>
@@ -53,6 +53,14 @@
     <p><strong>Kontakt</strong></p>
     <p>meno@skola.sk</p>
   </div>
+ 
+  <button id="tlacidlo">Prepni</button>
 
+  <script>
+  const tlacidlo = document.querySelector('#tlacidlo');
+
+  tlacidlo.addEventListener('click', () => {
+    document.body.classList.toggle('tmava');});
+</script>
 </body></center>
 </html>
