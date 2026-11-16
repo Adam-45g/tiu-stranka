@@ -21,19 +21,29 @@
     .tmava {
       background-color: black;
       color: white;}
+    #tlacidlo1 {
+      font-size: 28px;
+      padding: 20px 40px;
+      border-radius: 40px;
+      touch-action: manipulation;}
+    #pocet {
+      font-size: 48px;
+      font-weight: bold;}
+    #sprava {
+      font-size: 24px;
+      font-weight: bold;}
+    .oslava {
+      background-color: #ff6f1e}
   </style>
 </head>
 <center><body>
 
   <h1>Počítačové siete</h1>
-
   <p>Počítačové siete umožňujú zariadeniam navzájom komunikovať a zdieľať informácie.</p>
-
   <p>Tejto téme sa venujem, pretože študujem počítačové siete a zaujíma ma, ako funguje internet.</p>
 
   <h2>TCP/IP model</h2>
-
-  <p>TCP/IP je súbor protokolov, ktoré sa používajú pri komunikácii medzi zariadeniami v sieti. <br>
+  <p>TCP/IP je súbor protokolov, ktoré sa používajú pri komunikácii medzi zariadeniami v sieti.<br>
      Tieto protokoly sú najdôležetejšie:</p>
 
   <ul class="zoznam">
@@ -56,11 +66,34 @@
  
   <button id="tlacidlo">Prepni</button>
 
+  <h2>Klikačka</h1>
+  <p id="info">Koľko klikov stihneš za 1 sekundu?</p>
+  <button id="tlacidlo1">Klikaj</button>
+  <p>Kliky: <span id="pocet">0</span></p>
+  <p id="sprava"></p>
+
   <script>
   const tlacidlo = document.querySelector('#tlacidlo');
-
   tlacidlo.addEventListener('click', () => {
     document.body.classList.toggle('tmava');});
-</script>
+  </script>
+
+  <script>
+    const tlacidlo1 = document.querySelector('#tlacidlo1');
+    const vypis = document.querySelector('#pocet');
+    const sprava = document.querySelector('#sprava');
+    const info = document.querySelector('#info');
+    let pocet = 0;
+    tlacidlo1.addEventListener('click', () => {
+      pocet = pocet + 1;
+      vypis.textContent = pocet;
+      if (pocet === 1) {
+	setTimeout(() => {
+	  tlacidlo1.disabled = true;
+	  info.textContent = 'Čas vypršal. Obnov stránku a hraj znova.';}, 1000)}
+      if (pocet >= 9) {sprava.textContent = 'Legenda';}
+      else if (pocet >= 6) {sprava.textContent = 'Raketa';}
+      else {sprava.textContent = 'Slimák';}});
+  </script>
 </body></center>
 </html>
